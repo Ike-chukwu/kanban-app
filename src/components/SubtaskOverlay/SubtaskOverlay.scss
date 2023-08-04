@@ -1,0 +1,174 @@
+.subtask-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.close {
+    display: none;
+  }
+
+  .subtask-cover {
+    background: white;
+    width: 500px;
+    padding: 2rem;
+    border-radius: 0.4rem;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    max-height: 800px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 4;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .subtask-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      text-transform: capitalize;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      margin-bottom: 0.4rem;
+      color: rgb(130, 143, 163);
+    }
+
+    .subtask-list {
+      .input-container-parent {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        flex-direction: column;
+        // margin-top: .5rem;
+
+        .i-cont {
+          background: #f4f7fd;
+          width: 100%;
+          padding: 0.5rem;
+          border: 0.1px solid rgba(130, 143, 163, 0.25);
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+
+          input[type="text"] {
+            width: 100%;
+            outline: none;
+            background: transparent;
+            border: none;
+            caret-color: transparent;
+            cursor: pointer;
+
+            &.underline {
+              text-decoration: line-through;
+            }
+          }
+
+          &:hover {
+            background: #d8d7f1;
+          }
+        }
+      }
+    }
+
+    .subtask-aspect {
+      select {
+        width: 100%;
+        padding: 0.8rem;
+        width: 100%;
+        padding: 0.5rem;
+        border: 0.1px solid rgba(130, 143, 163, 0.25);
+        cursor: pointer;
+      }
+    }
+
+    .options {
+      position: absolute;
+      right: 2%;
+      top: 18%;
+      text-transform: capitalize;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      background: white;
+      padding: 1rem 0.6rem;
+      width: 140px;
+      box-shadow: rgba(54, 78, 126, 0.25) 0px 10px 20px;
+      font-size: 0.9rem;
+      border-radius: 0.5rem;
+
+      p {
+        font-weight: 500;
+        color: rgb(130, 143, 163);
+        cursor: pointer;
+
+        &.danger {
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+.subtask-overlay {
+  &.dark {
+    .subtask-cover {
+      background: #2b2c37;
+      color: white;
+
+      .subtask-list {
+        .input-container-parent {
+          .i-cont {
+            background: #20212c;
+          }
+        }
+      }
+
+      input,
+      textarea,
+      select {
+        background:  #20212c;;
+        color: white;
+      }
+
+      .columns-pack {
+        .column-btn {
+          background: white;
+          color: rgba(99, 95, 199);
+        }
+      }
+
+      .options {
+        background: #20212c;
+      }
+
+    }
+  }
+}
+
+
+
+// media query for subtask overlay
+@media (max-width: 750px) {
+  .subtask-overlay {
+    .subtask-cover {
+      width: 400px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+ .todo-pack {
+      width: 100%;
+      margin-block: 1.2rem;
+      padding: 1.5rem;
+      background: white;
+      box-shadow: rgba(54, 78, 126, 0.1) 0px 4px 6px;
+      border-radius: 0.5rem;
+      cursor: pointer;
+
+      &:hover .title {
+        color: rgb(99, 95, 199);
+      }
+
+      .title {
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+
+      .tracker {
+        font-size: 0.8rem;
+        font-weight: 300;
+        text-transform: capitalize;
+        margin-top: 0.5rem;
+        display: block;
+      }
+    }

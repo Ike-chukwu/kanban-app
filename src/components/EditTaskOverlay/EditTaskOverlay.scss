@@ -1,0 +1,124 @@
+.add-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .add-cover {
+    background: white;
+    width: 500px;
+    padding: 2rem;
+    border-radius: 0.4rem;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    max-height: 800px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .add-prompt {
+      font-size: 1.4rem;
+      text-transform: capitalize;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      margin-bottom: 0.4rem;
+    }
+
+    input {
+      width: 95%;
+      padding: 0.5rem;
+      border: 0.1px solid rgba(130, 143, 163, 0.25);
+    }
+
+    .l-title {
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 0.1px solid rgba(130, 143, 163, 0.25);
+      }
+    }
+
+    .columns-pack {
+      .input-pack {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 0.7rem;
+      }
+    }
+
+    .column-btn {
+      background: rgb(99, 95, 199);
+      padding: 0.7rem;
+      text-align: center;
+      text-transform: capitalize;
+      color: white;
+      font-weight: 600;
+      border-radius: 2rem;
+
+      &:hover {
+        opacity: 0.6;
+        cursor: pointer;
+      }
+    }
+
+    .current-status {
+      .diff-cat {
+        width: 100%;
+        padding: 0.5rem;
+        border: 0.1px solid rgba(130, 143, 163, 0.25);
+      }
+    }
+  }
+}
+
+
+// ---darkmode
+.add-overlay {
+  &.dark {
+    .add-cover {
+      background: #2b2c37;
+      color: white;
+
+      input,
+      textarea,
+      select {
+        background:  #20212c;
+        color: white;
+      }
+
+      .columns-pack {
+        .column-btn {
+          background: white;
+          color: rgba(99, 95, 199);
+        }
+      }
+    }
+  }
+}
+
+// media query for add overlay
+@media (max-width: 750px) {
+  .add-overlay {
+    .add-cover {
+      width: 300px;
+      height: 80%;
+    }
+  }
+}

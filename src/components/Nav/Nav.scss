@@ -1,0 +1,130 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+    align-items: center;
+
+    .logo-mobile {
+      display: none;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+
+      .img {
+        display: none;
+      }
+    }
+  }
+  .right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+
+    .plusBtn {
+      display: none;
+    }
+
+    .btn {
+      background: rgb(99, 95, 199);
+      padding: 1rem 1.4rem;
+      border-radius: 2rem;
+      text-transform: capitalize;
+      color: white;
+
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+
+    .ellipsis {
+      cursor: pointer;
+    }
+  }
+
+  .options {
+    position: absolute;
+    right: 2.5rem;
+    bottom: -60%;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: white;
+    padding: 1rem 0.6rem;
+    width: 140px;
+    box-shadow: rgba(54, 78, 126, 0.25) 0px 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+
+    p {
+      font-weight: 500;
+      color: rgb(130, 143, 163);
+      cursor: pointer;
+
+      &.danger {
+        color: red;
+      }
+    }
+  }
+}
+
+// media query for navbar
+@media (max-width: 750px) {
+  .navBar {
+    padding: 1rem 1.5rem;
+
+    .left {
+      width: unset;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      .logo {
+        display: none;
+      }
+      .logo-mobile {
+        display: unset;
+      }
+      h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        // .up,
+        .img {
+          &.show {
+            display: unset;
+            cursor: pointer;
+          }
+        }
+        .hide {
+          display: none;
+        }
+      }
+    }
+
+    .right {
+      gap: 1rem;
+      .plusBtn {
+        display: unset;
+        background: rgb(99, 95, 199);
+        padding: 0.4rem 1.2rem;
+        border-radius: 2rem;
+        cursor: pointer;
+      }
+      .btn {
+        display: none;
+      }
+    }
+  }
+}
