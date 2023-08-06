@@ -17,9 +17,9 @@ const Task = (props) => {
   //returns the array of tasks passed as a prop to the task component in form of cards
   return props.tasks.map((task) => {
 
-    //gets the checked property from each subtask
-    // const checkedStateProp = task.subTasks.map((sTask) => sTask.checked);
-    // const countCheckedBoses = () => checkedStateProp.filter(Boolean).length;
+    //gets the checked property from subtasks
+    const checkedStateProp = task.subTasks.map((sTask) => sTask.checked);
+    const countCheckedBoses = () => checkedStateProp.filter(Boolean).length;
 
     return (
       <div
@@ -31,10 +31,9 @@ const Task = (props) => {
         key={task.id}
       >
         <p className="title">{task.title}</p>
-        <span className="tracker">{task.subTasks.length} subtasks</span>
+        <span className="tracker">{countCheckedBoses()} of {task.subTasks.length} subtasks</span>
 
         <SubtaskOverlay
-          task="me"
           subBoard={props.subBoard}
           subBoardId={props.subBoardID}
           testID={taskID}
