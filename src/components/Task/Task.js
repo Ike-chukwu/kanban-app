@@ -18,8 +18,8 @@ const Task = (props) => {
   return props.tasks.map((task) => {
 
     //gets the checked property from each subtask
-    const checkedStateProp = task.subTasks.map((sTask) => sTask.checked);
-    const countCheckedBoses = () => checkedStateProp.filter(Boolean).length;
+    // const checkedStateProp = task.subTasks.map((sTask) => sTask.checked);
+    // const countCheckedBoses = () => checkedStateProp.filter(Boolean).length;
 
     return (
       <div
