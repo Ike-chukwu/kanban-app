@@ -7,7 +7,7 @@ import Task from "../Task/Task";
 import EmptyState from "../EmptyState/EmptyState";
 import { AuthContext } from "../context/auth-context";
 
-const Home = (props) => {
+const Home = () => {
   
 
   const { checkValueExists,editBoardFunction,clickedItem } = useContext(AuthContext);

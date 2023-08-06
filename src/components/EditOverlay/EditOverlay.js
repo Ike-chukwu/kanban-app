@@ -26,6 +26,7 @@ const EditOverlay = (props) => {
     boardExtract,
     { subBoardsE: subBoardsExt },
   ]);
+  
 
   //function that handles inout change in any if the input fields
   const handleChanger = (e, id) => {

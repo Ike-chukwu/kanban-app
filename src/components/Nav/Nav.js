@@ -12,11 +12,8 @@ import EditOverlay from "../EditOverlay/EditOverlay";
 import AddOverlay from "../AddOverlay/AddOverlay";
 import { AuthContext } from "../context/auth-context";
 
-
 const Nav = (props) => {
-
   const { light, clickedItem } = useContext(AuthContext);
-
 
   //triggers ellipsis dropdown
   const [display, setDisplay] = useState(false);
@@ -31,16 +28,18 @@ const Nav = (props) => {
   const [deleteOverlay, setDeleteOverlay] = useState(false);
 
   //monitors dropdown state
-
   const ellipsisClickHandler = () => {
     setDisplay(!display);
   };
-  
 
   return (
     <div className="navBar">
       <div className="left">
-        {light? <img src={logo} className="logo" alt="" /> : <img src={logoL} className="logo" alt="" />}
+        {light ? (
+          <img src={logo} className="logo" alt="" />
+        ) : (
+          <img src={logoL} className="logo" alt="" />
+        )}
         <img src={logoM} className="logo-mobile" alt="" />
         <h3>
           {/* current active board that is clicked on th sidebar */}
@@ -60,7 +59,9 @@ const Nav = (props) => {
         </h3>
       </div>
       <div className="right">
-        <span className="btn" onClick={() => setAddOverlay(true)}>+ add new task</span>
+        <span className="btn" onClick={() => setAddOverlay(true)}>
+          + add new task
+        </span>
         <span className="plusBtn" onClick={() => setAddOverlay(true)}>
           <img src={addTask} alt="" />
         </span>
@@ -82,98 +83,26 @@ const Nav = (props) => {
 
       {/* /*delete overlay working process */}
       {deleteOverlay && (
-        <DeleteOverlay setDeleteOverlay={setDeleteOverlay} deleteOverlay={deleteOverlay} setDisplay={setDisplay} />
-        /* <div className="d-overlay">
-          <div className="d-cover">
-            <h4 className="del-prompt">Delete this board</h4>
-            <p>
-              Are you sure you want to delete the "Roadmap" board? This action
-              will remove all columns and tasks and cannot be reversed.
-            </p>
-            <div className="btn-pack">
-              <div className="d-btn red">delete</div>
-              <div className="d-btn" onClick={() => setDeleteOverlay(false)}>
-                cancel
-              </div>
-            </div>
-          </div>
-        </div> */
+        <DeleteOverlay
+          setDeleteOverlay={setDeleteOverlay}
+          deleteOverlay={deleteOverlay}
+          setDisplay={setDisplay}
+        />
       )}
 
       {/* /*edit overlay working process */}
-      {editOverlay && ( <EditOverlay setEditOverlay={setEditOverlay} editOverlay={editOverlay} setDisplay={setDisplay}/>
-        /* <div className="e-overlay" onClick={() => setEditOverlay(false)}>
-          <div className="e-cover">
-            <h4 className="e-prompt">Edit board</h4>
-            <div className="l-title">
-              <label classXName="label">board name</label>
-              <input type="text" placeholder="" />
-            </div>
-            <div className="columns-pack">
-              <label classXName="label">board columns</label>
-              <div className="input-pack">
-                <input type="text" placeholder="" />
-                <img src={close} alt="" />
-              </div>
-              <div className="input-pack">
-                <input type="text" placeholder="" />
-                <img src={close} alt="" />
-              </div>
-              <div className="input-pack">
-                <input type="text" placeholder="" />
-                <img src={close} alt="" />
-              </div>
-              <div className="column-btn">+ add new column</div>
-            </div>
-            <div className="long-btns-pack">
-              <div className="column-btn">save change</div>
-            </div>
-          </div>
-        </div> */
+      {editOverlay && (
+        <EditOverlay
+          setEditOverlay={setEditOverlay}
+          editOverlay={editOverlay}
+          setDisplay={setDisplay}
+        />
       )}
 
       {/*add new task overlay working process */}
-      {addOverlay && ( <AddOverlay setAddOverlay={setAddOverlay} addOverlay={addOverlay}/>
-        /* <div className="add-overlay" onClick={() => setAddOverlay(false)} >
-          <div className="add-cover">
-            <h4 className="add-prompt">add new task</h4>
-            <div className="l-title">
-              <label className="label">task name</label>
-              <input type="text" placeholder="" />
-            </div>
-            <div className="l-title">
-              <label className="label">description</label>
-              <textarea name="" id="" cols="30" rows="10"></textarea>
-            </div>
-            <div className="columns-pack">
-              <label classXName="label">board columns</label>
-              <div className="input-pack">
-                <input type="text" placeholder="" />
-                <img src={close} alt="" />
-              </div>
-              <div className="input-pack">
-                <input type="text" placeholder="" />
-                <img src={close} alt="" />
-              </div>
-              <div className="input-pack">
-                <input type="text" placeholder="" />
-                <img src={close} alt="" />
-              </div>
-              <div className="column-btn">+ add new subtask</div>
-            </div>
-            <div className="current-status">
-              <label className="label">current status</label>
-              <select name="Categories" className="diff-cat" id="">
-                <option value="Todo">Todo</option>
-                <option value="Doing">Doing</option>
-                <option value="Done">Done</option>
-              </select>
-            </div>
-            <div className="column-btn">create task</div>
-          </div>
-        </div> */
+      {addOverlay && (
+        <AddOverlay setAddOverlay={setAddOverlay} addOverlay={addOverlay} />
       )}
-
     </div>
   );
 };

@@ -8,11 +8,10 @@ import { useSelector } from "react-redux";
 import EmptyState from "./components/EmptyState/EmptyState";
 import { AuthContext } from "./components/context/auth-context";
 
-
 function App() {
   const { light } = useContext(AuthContext);
   const dataPack = useSelector((state) => state);
-  
+
   const boardData = dataPack.boards;
 
   const [dropStatus, setDropStatus] = useState(false);
@@ -21,9 +20,7 @@ function App() {
     setDropStatus(!dropStatus);
   };
 
-  const lightA =JSON.parse(localStorage.getItem('mode', light))
-
-
+  const lightA = JSON.parse(localStorage.getItem("mode", light));
 
   if (boardData.length > 0) {
     return (

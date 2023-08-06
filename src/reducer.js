@@ -1,37 +1,7 @@
 import { createStore } from "redux";
 
 const INITIAL_BOARD_STATE = {
-  boards: [
-    // {
-    //   id: 1,
-    //   value: "board 1",
-    //   subBoards: [
-    //     {
-    //       id: 1 * 100,
-    //       value: "Sub board",
-    //       Tasks: [
-    //         {
-    //           id: 1 * 15,
-    //           title: "task 1",
-    //           description: "description 1",
-    //           subTasks: [
-    //             {
-    //               id: 1 * 45,
-    //               value: "sub-task 1",
-    //               checked:false
-    //             },
-    //             {
-    //               id: 2 * 4533,
-    //               value: "sub-task 2",
-    //               checked:false
-    //             },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
-  ],
+  boards: [],
 };
 
 const reducer = (state = INITIAL_BOARD_STATE, action) => {
@@ -303,7 +273,6 @@ const loadStateFromLocalStorage = () => {
   }
 };
 
-// const store = createStore(reducer);
 
 // Create the Redux store and use the persisted state as the initial state
 const persistedState = loadStateFromLocalStorage();
