@@ -31,7 +31,7 @@ const Task = (props) => {
         key={task.id}
       >
         <p className="title">{task.title}</p>
-        <span className="tracker">{countCheckedBoses()} of {task.subTasks.length} subtasks</span>
+        <span className="tracker">{task.subTasks.length} subtasks</span>
 
         <SubtaskOverlay
           task="me"
