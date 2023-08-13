@@ -3,6 +3,7 @@ import "./EditTaskOverlay.scss";
 import close from "../../assets/icon-cross.svg";
 import { useDispatch } from "react-redux";
 import { AuthContext } from "../context/auth-context";
+import Input from "../Input/Input";
 
 const EditTaskOverlay = (props) => {
   const { light, checkValueExists } = useContext(AuthContext);
@@ -105,7 +106,8 @@ const EditTaskOverlay = (props) => {
   };
 
   //edits and creates task, subtasks, description of the task and also changes the category of subboard the task falls under if the subboard value changes
-  const createTask = () => {
+  const createTask = (e) => {
+    e.preventDefault()
     const checksCpy = [...details[2].subTasks];
     const checksCpyVal = checksCpy.map(
       (task, index) => (task.checked = props.checkedState[index])
@@ -152,11 +154,12 @@ const EditTaskOverlay = (props) => {
       className={light ? "add-overlay" : "add-overlay dark"}
       onClick={() => props.setEditTaskOverlay(false)}
     >
-      <div
+      <form
         className="add-cover"
         onClick={(e) => {
           e.stopPropagation();
         }}
+        onSubmit={createTask}
       >
         <h4 className="add-prompt">edit task</h4>
         {details.map((task, index) => {
@@ -164,7 +167,10 @@ const EditTaskOverlay = (props) => {
             return (
               <div className="l-title">
                 <label className="label">task name</label>
-                <input
+                <Input
+                  key={task.id}
+                  pattern="^(?!\s*$).+"
+                  elementType="input"
                   type="text"
                   placeholder=""
                   value={task.value}
@@ -179,14 +185,14 @@ const EditTaskOverlay = (props) => {
             return (
               <div className="l-title">
                 <label className="label">description</label>
-                <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="10"
+                <Input
+                  key={info.id}
+                  elementType="textarea"
+                  type="text"
+                  placeholder=""
                   value={info.value}
                   onChange={(e) => onChangeHandler(e, info.id)}
-                ></textarea>
+                />
               </div>
             );
           }
@@ -196,7 +202,10 @@ const EditTaskOverlay = (props) => {
           {details[2].subTasks.map((t, index) => {
             return (
               <div className="input-pack" key={t.id}>
-                <input
+                <Input
+                  key={t.id}
+                  pattern="^(?!\s*$).+"
+                  elementType="input"
                   type="text"
                   placeholder=""
                   value={t.value}
@@ -245,10 +254,8 @@ const EditTaskOverlay = (props) => {
             })}
           </select>
         </div>
-        <div className="column-btn" onClick={createTask}>
-          create task
-        </div>
-      </div>
+        <button className="column-btn">create task</button>
+      </form>
     </div>
   );
 };

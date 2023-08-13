@@ -11,14 +11,27 @@ const SubtaskOverlay = (props) => {
 
   //board the currnt task falls under
   const itemInFocus = checkValueExists();
-
+  console.log(itemInFocus);
   //subboard the current task falls under
-  const objInFocus = itemInFocus.subBoards.find(
-    (subBoad) => subBoad.id == props.subBoardId
-  );
+  let objInFocus;
+  let copy;
+  let taskInFocus;
 
+  if (itemInFocus && itemInFocus.subBoards) {
+    objInFocus = itemInFocus.subBoards.find(
+      (subBoad) => subBoad.id == props.subBoardId
+    );
+
+    copy = [...itemInFocus.subBoards];
+
+    taskInFocus = objInFocus.Tasks.find((task) => task.id == props.testID);
+    // Rest of your code
+  }
+
+  //  objInFocus = itemInFocus.subBoards.find(
+  //   (subBoad) => subBoad.id == props.subBoardId
+  // );
   //gets the clicked task from the subboard
-  const taskInFocus = objInFocus.Tasks.find((task) => task.id == props.testID);
 
   //stores the checked state of all subtasks
   const [checkedState, setCheckedState] = useState(
@@ -41,7 +54,6 @@ const SubtaskOverlay = (props) => {
   //temporary variable to enable swapping subboard position in arrayof subboards
   let temp;
   //copy of the subboards array
-  const copy = [...itemInFocus.subBoards];
   const dispatch = useDispatch();
 
   // stores the state of edit overlay

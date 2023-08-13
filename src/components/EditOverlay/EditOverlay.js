@@ -3,6 +3,7 @@ import "./EditOverlay.scss";
 import close from "../../assets/icon-cross.svg";
 import { useDispatch } from "react-redux";
 import { AuthContext } from "../context/auth-context";
+import Input from "../Input/Input";
 
 const EditOverlay = (props) => {
   //close option modal when edit has been clicked
@@ -26,7 +27,6 @@ const EditOverlay = (props) => {
     boardExtract,
     { subBoardsE: subBoardsExt },
   ]);
-  
 
   //function that handles inout change in any if the input fields
   const handleChanger = (e, id) => {
@@ -81,7 +81,8 @@ const EditOverlay = (props) => {
   };
 
   //function that saves the newly added or edited subboards
-  const save = () => {
+  const save = (e) => {
+    e.preventDefault()
     //returns true if any of the inputs is empty
     const validation = itemsToBeEdited.some((item, index) => {
       if (index == 1) {
@@ -112,11 +113,12 @@ const EditOverlay = (props) => {
       className={light ? "e-overlay" : "dark e-overlay"}
       onClick={() => props.setEditOverlay(false)}
     >
-      <div
+      <form
         className="e-cover"
         onClick={(e) => {
           e.stopPropagation();
         }}
+        onSubmit={save}
       >
         <h4 className="e-prompt">Edit board</h4>
         {itemsToBeEdited.map((item, index) => {
@@ -124,11 +126,14 @@ const EditOverlay = (props) => {
             return (
               <div className="l-title" key={item.id}>
                 <label className="label">board name</label>
-                <input
+           
+                <Input
+                  pattern="^(?!\s*$).+"
+                  elementType="input"
                   type="text"
                   placeholder=""
-                  onChange={(e) => handleChanger(e, item.id)}
                   value={item.value}
+                  onChange={(e) => handleChanger(e, item.id)}
                 />
               </div>
             );
@@ -139,11 +144,13 @@ const EditOverlay = (props) => {
           {itemsToBeEdited[1].subBoardsE?.map((item) => {
             return (
               <div className="input-pack" key={item.id}>
-                <input
+                <Input
+                  pattern="^(?!\s*$).+"
+                  elementType="input"
                   type="text"
                   placeholder=""
-                  onChange={(e) => handleChanger(e, item.id)}
                   value={item.value}
+                  onChange={(e) => handleChanger(e, item.id)}
                 />
                 <img src={close} alt="" onClick={() => deleteColumn(item.id)} />
               </div>
@@ -154,11 +161,11 @@ const EditOverlay = (props) => {
           </div>
         </div>
         <div className="long-btns-pack">
-          <div className="column-btn" onClick={save}>
+          <button className="column-btn">
             save change
-          </div>
+          </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
