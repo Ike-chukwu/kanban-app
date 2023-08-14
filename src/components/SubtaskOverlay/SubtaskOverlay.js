@@ -11,7 +11,7 @@ const SubtaskOverlay = (props) => {
 
   //board the currnt task falls under
   const itemInFocus = checkValueExists();
-  console.log(itemInFocus);
+
   //subboard the current task falls under
   let objInFocus;
   let copy;
@@ -24,14 +24,9 @@ const SubtaskOverlay = (props) => {
 
     copy = [...itemInFocus.subBoards];
 
+    //gets the clicked task from the subboard
     taskInFocus = objInFocus.Tasks.find((task) => task.id == props.testID);
-    // Rest of your code
   }
-
-  //  objInFocus = itemInFocus.subBoards.find(
-  //   (subBoad) => subBoad.id == props.subBoardId
-  // );
-  //gets the clicked task from the subboard
 
   //stores the checked state of all subtasks
   const [checkedState, setCheckedState] = useState(
@@ -73,6 +68,7 @@ const SubtaskOverlay = (props) => {
     const checksCpyVal = checksCpy.map(
       (task, index) => (task.checked = checkedState[index])
     );
+    //checks the scurrent state which stores the current selected value in the select tag dropdown if its empty
     if (sCurrent == "") {
       setSecondDisplay(false);
       props.onOverlayClose();
@@ -132,12 +128,14 @@ const SubtaskOverlay = (props) => {
         <div className="subtask-cover" onClick={(e) => e.stopPropagation()}>
           <div className="subtask-title">
             <h4 className="subtask-prompt">{taskInFocus.title}</h4>
-            <img
-              src={props.ellipsis}
-              style={{ cursor: "pointer" }}
-              onClick={() => setSecondDisplay(!secondDisplay)}
-              alt=""
-            />
+            {sCurrent == "" ? (
+              <img
+                src={props.ellipsis}
+                style={{ cursor: "pointer" }}
+                onClick={() => setSecondDisplay(!secondDisplay)}
+                alt=""
+              />
+            ) : null}
           </div>
 
           <div className="subtask-list">

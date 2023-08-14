@@ -29,6 +29,7 @@ function App() {
         <DropDownMenu
           dropDownToggler={dropDownToggler}
           dropStatus={dropStatus}
+          setDropStatus={setDropStatus}
         />
         <div className={light ? "app-container" : "app-container dark"}>
           <Sidebar />

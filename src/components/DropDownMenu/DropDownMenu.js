@@ -12,7 +12,6 @@ const DropDownMenu = (props) => {
   const { light, checkValueExists, clickedItem, modeToggler, clickHandler } =
     useContext(AuthContext);
 
-
   const [status, setStatus] = useState(true);
   const [boardOverlay, setBoardOverlay] = useState(false);
   const itemInFocus = checkValueExists();
@@ -36,8 +35,11 @@ const DropDownMenu = (props) => {
   {
     if (props.dropStatus) {
       return (
-        <div className={light ? "dropDown" : "dark dropDown"}>
-          <div className="cover">
+        <div
+          className={light ? "dropDown" : "dark dropDown"}
+          onClick={() => props.setDropStatus(false)}
+        >
+          <div className="cover" onClick={(e) => e.stopPropagation()}>
             <h3 className="overall-title">all boards(3)</h3>
             <ul className="categories">
               {itemInFocus &&
@@ -93,5 +95,3 @@ const DropDownMenu = (props) => {
 };
 
 export default DropDownMenu;
-
-

@@ -9,7 +9,6 @@ import { AuthContext } from "../context/auth-context";
 
 const Home = () => {
   
-
   const { checkValueExists,editBoardFunction,clickedItem } = useContext(AuthContext);
 
   

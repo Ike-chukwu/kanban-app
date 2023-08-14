@@ -20,7 +20,6 @@ const Task = (props) => {
     const checkedStateProp = task.subTasks.map((sTask) => sTask.checked);
     const countCheckedBoses = () => checkedStateProp.filter(Boolean).length;
 
-    
     return (
       <div
         className="todo-pack"
@@ -34,24 +33,26 @@ const Task = (props) => {
         <span className="tracker">
           {countCheckedBoses()} of {task.subTasks.length} subtasks
         </span>
-        <SubtaskOverlay
-          subBoard={props.subBoard}
-          subBoardId={props.subBoardID}
-          testID={taskID}
-          titleName={task.title}
-          taskId={task.id}
-          ellipsis={props.ellipsis}
-          subTasks={task.subTasks}
-          setDisplay={props.setDisplay}
-          display={props.display}
-          setEditOverlay={props.setEditOverlay}
-          setDeleteOverlay={props.setDeleteOverlay}
-          editOverlay={props.editOverlay}
-          deleteOverlay={props.deleteOverlay}
-          onOverlayClose={handleOverlayClose}
-          subBoardsArray={props.subBoards}
-          subtaskOverlay={subtaskOverlay}
-        />
+        {subtaskOverlay ? (
+          <SubtaskOverlay
+            subBoard={props.subBoard}
+            subBoardId={props.subBoardID}
+            testID={taskID}
+            titleName={task.title}
+            taskId={task.id}
+            ellipsis={props.ellipsis}
+            subTasks={task.subTasks}
+            setDisplay={props.setDisplay}
+            display={props.display}
+            setEditOverlay={props.setEditOverlay}
+            setDeleteOverlay={props.setDeleteOverlay}
+            editOverlay={props.editOverlay}
+            deleteOverlay={props.deleteOverlay}
+            onOverlayClose={handleOverlayClose}
+            subBoardsArray={props.subBoards}
+            subtaskOverlay={subtaskOverlay}
+          />
+        ) : null}
       </div>
     );
   });
