@@ -16,7 +16,6 @@ const Task = (props) => {
 
   //returns the array of tasks passed as a prop to the task component in form of cards
   return props.tasks.map((task) => {
-
     //gets the checked property from subtasks
     const checkedStateProp = task.subTasks.map((sTask) => sTask.checked);
     const countCheckedBoses = () => checkedStateProp.filter(Boolean).length;
@@ -31,26 +30,29 @@ const Task = (props) => {
         key={task.id}
       >
         <p className="title">{task.title}</p>
-        <span className="tracker">{countCheckedBoses()} of {task.subTasks.length} subtasks</span>
-
-        <SubtaskOverlay
-          subBoard={props.subBoard}
-          subBoardId={props.subBoardID}
-          testID={taskID}
-          titleName={task.title}
-          taskId={task.id}
-          ellipsis={props.ellipsis}
-          subTasks={task.subTasks}
-          setDisplay={props.setDisplay}
-          display={props.display}
-          setEditOverlay={props.setEditOverlay}
-          setDeleteOverlay={props.setDeleteOverlay}
-          editOverlay={props.editOverlay}
-          deleteOverlay={props.deleteOverlay}
-          onOverlayClose={handleOverlayClose}
-          subBoardsArray={props.subBoards}
-          subtaskOverlay={subtaskOverlay}
-        />
+        <span className="tracker">
+          {countCheckedBoses()} of {task.subTasks.length} subtasks
+        </span>
+        {subtaskOverlay ? (
+          <SubtaskOverlay
+            subBoard={props.subBoard}
+            subBoardId={props.subBoardID}
+            testID={taskID}
+            titleName={task.title}
+            taskId={task.id}
+            ellipsis={props.ellipsis}
+            subTasks={task.subTasks}
+            setDisplay={props.setDisplay}
+            display={props.display}
+            setEditOverlay={props.setEditOverlay}
+            setDeleteOverlay={props.setDeleteOverlay}
+            editOverlay={props.editOverlay}
+            deleteOverlay={props.deleteOverlay}
+            onOverlayClose={handleOverlayClose}
+            subBoardsArray={props.subBoards}
+            subtaskOverlay={subtaskOverlay}
+          />
+        ) : null}
       </div>
     );
   });

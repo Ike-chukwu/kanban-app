@@ -3,6 +3,7 @@ import "./NewBoardOverlay.scss";
 import close from "../../assets/icon-cross.svg";
 import { useDispatch } from "react-redux";
 import { AuthContext } from "../context/auth-context";
+import Input from "../Input/Input";
 
 const NewBoardOverlay = (props) => {
   // light state from context
@@ -41,7 +42,8 @@ const NewBoardOverlay = (props) => {
   };
 
   //function that creates new board
-  const create = () => {
+  const create = (e) => {
+    e.preventDefault();
     const answer = fields.some((item) => item.value == "");
     if (answer) {
       props.setBoardOverlay(true);
@@ -60,16 +62,20 @@ const NewBoardOverlay = (props) => {
       className={light ? "nB-overlay" : "dark nB-overlay"}
       onClick={() => props.setBoardOverlay(false)}
     >
-      <div
+      <form
         className="nB-cover"
         onClick={(e) => {
           e.stopPropagation();
         }}
+        onSubmit={create}
       >
         <h4 className="nB-prompt">Add new board</h4>
         <div className="l-title">
           <label className="label">board name</label>
-          <input
+          <Input
+            key={fields[0].id}
+            pattern="^(?!\s*$).+"
+            elementType="input"
             type="text"
             placeholder=""
             value={fields[0].value}
@@ -84,7 +90,10 @@ const NewBoardOverlay = (props) => {
             }
             return (
               <div className="input-pack" key={item.id}>
-                <input
+                <Input
+                  key={item.id}
+                  pattern="^(?!\s*$).+"
+                  elementType="input"
                   type="text"
                   placeholder=""
                   value={item.value}
@@ -106,11 +115,9 @@ const NewBoardOverlay = (props) => {
           </div>
         </div>
         <div className="long-btns-pack">
-          <div className="column-btn" onClick={create}>
-            Create New Board
-          </div>
+          <button className="column-btn">Create New Board</button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

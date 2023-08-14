@@ -25,7 +25,7 @@ const DeleteOverlay = (props) => {
     position = boardData.indexOf(ActiveBoard);
 
     //sets the element before it as the clicked item when its deleted
-    if (position >= 1) {
+    if ((position > 1 || position == 1)) {
       position--;
       newFocus = boardData[position];
       editBoardFunction(newFocus.value);

@@ -1,0 +1,5 @@
+.myinput {
+  &:invalid[focused="true"] {
+    border: solid 0.1rem red;
+  }
+}

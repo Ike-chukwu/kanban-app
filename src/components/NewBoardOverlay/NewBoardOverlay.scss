@@ -51,11 +51,11 @@
       }
     }
 
-    .l-title {
+    // .l-title {
       input {
         width: 100%;
       }
-    }
+    // }
 
     .columns-pack {
       .input-pack {
@@ -96,6 +96,7 @@
         color: white;
         font-weight: 600;
         border-radius: 2rem;
+        border: none;
 
         &:hover {
           opacity: 0.6;

@@ -5,7 +5,7 @@
 @media (max-width: 750px) {
   .dropDown {
     background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
+    position: absolute;
     top: 8%;
     left: 0;
     right: 0;
@@ -15,11 +15,10 @@
     display: flex;
     justify-content: center;
     opacity: 1;
-    transition: top .4s ease-in;
+    transition: top 0.4s ease-in;
 
-
-    &.hidden{
-       top: -100vh;
+    &.hidden {
+      top: -100vh;
     }
 
     .cover {
@@ -150,11 +149,10 @@
   }
 }
 
-
 // --dropdown darkmode
-.dropDown{
-  &.dark{
-    .cover{
+.dropDown {
+  &.dark {
+    .cover {
       background: #2b2c37;
       color: white;
 
@@ -162,15 +160,13 @@
         background: #20212c;
       }
 
-      .categories{
-        &.item{
-          &.initializer{
+      .categories {
+        &.item {
+          &.initializer {
             color: rgb(99, 95, 199);
           }
         }
       }
-  
     }
   }
 }
-
