@@ -3,6 +3,7 @@ import "./AddOverlay.scss";
 import close from "../../assets/icon-cross.svg";
 import { useDispatch } from "react-redux";
 import { AuthContext } from "../context/auth-context";
+import Input from "../Input/Input";
 
 const AddOverlay = (props) => {
   const { light, checkValueExists } = useContext(AuthContext);
@@ -102,7 +103,8 @@ const AddOverlay = (props) => {
   };
 
   // function that creates new task
-  const addNewTask = () => {
+  const addNewTask = (e) => {
+    e.preventDefault()
     const newTasked = [...newTask];
     const objDrop = newTasked.find((obj) => obj.dropDownOption);
     console.log(objDrop.subTasks);
@@ -121,7 +123,7 @@ const AddOverlay = (props) => {
     };
     deleteSubTask();
     setNewTask(newTasked);
-
+    console.log('yess');
     //function that checks if any inpu field is empty
     const emptyInputValidationCheck = newTask.some((item, index) => {
       if (index == 2) {
@@ -130,10 +132,10 @@ const AddOverlay = (props) => {
       return item.value == "";
     });
 
-    if (emptyInputValidationCheck) {
-      props.setAddOverlay(true);
-      return;
-    } else {
+    // if (emptyInputValidationCheck) {
+    //   props.setAddOverlay(true);
+    //   return;
+    // } else {
       props.setAddOverlay(false);
       const dataToBePassed = {
         boardId: itemInFocus.id,
@@ -150,19 +152,22 @@ const AddOverlay = (props) => {
         type: "ADD_TASK",
         payload: dataToBePassed,
       });
-    }
+    // }
   };
+
+
 
   return (
     <div
       className={light ? "add-overlay" : "add-overlay dark"}
       onClick={() => props.setAddOverlay(false)}
     >
-      <div
+      <form
         className="add-cover"
         onClick={(e) => {
           e.stopPropagation();
         }}
+        onSubmit={addNewTask}
       >
         <h4 className="add-prompt">add new task</h4>
         {newTask.map((task, index) => {
@@ -170,9 +175,20 @@ const AddOverlay = (props) => {
             return (
               <div className="l-title">
                 <label className="label">task name</label>
-                <input
+                {/* <input
                   type="text"
                   placeholder=""
+                  onChange={(e) => {
+                    handleChange(e, task.id);
+                  }}
+                /> */}
+                <Input
+                  key={task.id}
+                  pattern="^(?!\s*$).+"
+                  elementType="input"
+                  type="text"
+                  placeholder=""
+                  value={task.value}
                   onChange={(e) => {
                     handleChange(e, task.id);
                   }}
@@ -186,7 +202,7 @@ const AddOverlay = (props) => {
             return (
               <div className="l-title">
                 <label className="label">description</label>
-                <textarea
+                {/* <textarea
                   name=""
                   id=""
                   cols="30"
@@ -194,7 +210,18 @@ const AddOverlay = (props) => {
                   onChange={(e) => {
                     handleChange(e, task.id);
                   }}
-                ></textarea>
+                ></textarea> */}
+                 <Input
+                  key={task.id}
+                  elementType="textarea"
+                  type="text"
+                  placeholder=""
+                  value={task.value}
+                  onChange={(e) => {
+                    handleChange(e, task.id);
+                  }}
+                />
+                
               </div>
             );
           }
@@ -204,9 +231,20 @@ const AddOverlay = (props) => {
           {newTask[2].subTasks.map((t, index) => {
             return (
               <div className="input-pack" key={t.id}>
-                <input
+                {/* <input
                   type="text"
                   placeholder=""
+                  onChange={(e) => {
+                    handleChange(e, t.id);
+                  }}
+                /> */}
+                 <Input
+                  key={t.id}
+                  pattern="^(?!\s*$).+"
+                  elementType="input"
+                  type="text"
+                  placeholder=""
+                  value={t.value}
                   onChange={(e) => {
                     handleChange(e, t.id);
                   }}
@@ -239,10 +277,10 @@ const AddOverlay = (props) => {
             <option value="Done">Done</option> */}
           </select>
         </div>
-        <div className="column-btn" onClick={addNewTask}>
+        <button className="column-btn" >
           create task
-        </div>
-      </div>
+        </button>
+      </form>
     </div>
   );
 };

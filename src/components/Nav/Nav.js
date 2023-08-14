@@ -31,7 +31,7 @@ const Nav = (props) => {
   const ellipsisClickHandler = () => {
     setDisplay(!display);
   };
-
+  
   return (
     <div className="navBar">
       <div className="left">
