@@ -27,7 +27,6 @@ const Home = () => {
 
   // -currently clicked board---
   let itemInFocus = checkValueExists();
-  // console.log(itemInFocus);
   
   //checking for currentboard and also checking whether the array of boards is empty
   if (boardData.length !== 0) {
