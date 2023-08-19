@@ -52,9 +52,9 @@
     }
 
     // .l-title {
-      input {
-        width: 100%;
-      }
+    input {
+      width: 100%;
+    }
     // }
 
     .columns-pack {
@@ -63,6 +63,10 @@
         gap: 1rem;
         align-items: center;
         margin-bottom: 0.7rem;
+
+        img {
+          cursor: pointer;
+        }
       }
 
       .column-btn {

@@ -140,7 +140,7 @@ const SubtaskOverlay = (props) => {
 
           <div className="subtask-list">
             <label className="label">
-              {countCheckedBoses()} of subtasks {taskInFocus.subTasks.length}{" "}
+              {countCheckedBoses()} of {taskInFocus.subTasks.length} subtasks 
             </label>
             <div className="input-container-parent">
               {taskInFocus.subTasks.map((item, index) => {

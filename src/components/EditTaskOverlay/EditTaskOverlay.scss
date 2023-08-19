@@ -46,12 +46,12 @@
     }
 
     // .l-title {
-      input,
-      textarea {
-        width: 100%;
-        padding: 0.5rem;
-        border: 0.1px solid rgba(130, 143, 163, 0.25);
-      }
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 0.1px solid rgba(130, 143, 163, 0.25);
+    }
     // }
 
     .columns-pack {
@@ -60,6 +60,10 @@
         gap: 1rem;
         align-items: center;
         margin-bottom: 0.7rem;
+
+        img {
+          cursor: pointer;
+        }
       }
     }
 
@@ -89,7 +93,6 @@
   }
 }
 
-
 // ---darkmode
 .add-overlay {
   &.dark {
@@ -100,7 +103,7 @@
       input,
       textarea,
       select {
-        background:  #20212c;
+        background: #20212c;
         color: white;
       }
 
