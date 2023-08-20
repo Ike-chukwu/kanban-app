@@ -9,20 +9,25 @@
   display: none;
 }
 
-h1,h2,h3,h4,h5,h6{
-  font-family: 'Montserrat', sans-serif; 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
 }
 
-span, li, a, p, label{
-  font-family: 'Open Sans', sans-serif;
+span,
+li,
+a,
+p,
+label {
+  font-family: "Open Sans", sans-serif;
 }
-
 
 .app-container {
   display: flex;
-}
-
-.App {
 }
 
 .dark {

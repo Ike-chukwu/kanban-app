@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./SubtaskOverlay.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, } from "react-redux";
 import DeleteTaskOverlay from "../DeleteTaskOverlay/DeleteTaskOverlay";
 import EditTaskOverlay from "../EditTaskOverlay/EditTaskOverlay";
 import { useRef } from "react";

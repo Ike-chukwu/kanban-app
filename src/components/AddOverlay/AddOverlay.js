@@ -107,7 +107,6 @@ const AddOverlay = (props) => {
     e.preventDefault()
     const newTasked = [...newTask];
     const objDrop = newTasked.find((obj) => obj.dropDownOption);
-    console.log(objDrop.subTasks);
     const subTaskFinderFromInputArray = newTasked.find(
       (obj) => obj.subTasks
     ).subTasks;
@@ -131,11 +130,6 @@ const AddOverlay = (props) => {
       }
       return item.value == "";
     });
-
-    // if (emptyInputValidationCheck) {
-    //   props.setAddOverlay(true);
-    //   return;
-    // } else {
       props.setAddOverlay(false);
       const dataToBePassed = {
         boardId: itemInFocus.id,
@@ -152,7 +146,6 @@ const AddOverlay = (props) => {
         type: "ADD_TASK",
         payload: dataToBePassed,
       });
-    // }
   };
 
 
@@ -175,13 +168,6 @@ const AddOverlay = (props) => {
             return (
               <div className="l-title">
                 <label className="label">task name</label>
-                {/* <input
-                  type="text"
-                  placeholder=""
-                  onChange={(e) => {
-                    handleChange(e, task.id);
-                  }}
-                /> */}
                 <Input
                   key={task.id}
                   pattern="^(?!\s*$).+"
@@ -200,17 +186,8 @@ const AddOverlay = (props) => {
         {newTask.map((task, index) => {
           if (index == 1) {
             return (
-              <div className="l-title">
+              <div className="l-title" key={index}>
                 <label className="label">description</label>
-                {/* <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="10"
-                  onChange={(e) => {
-                    handleChange(e, task.id);
-                  }}
-                ></textarea> */}
                  <Input
                   key={task.id}
                   elementType="textarea"
@@ -231,13 +208,6 @@ const AddOverlay = (props) => {
           {newTask[2].subTasks.map((t, index) => {
             return (
               <div className="input-pack" key={t.id}>
-                {/* <input
-                  type="text"
-                  placeholder=""
-                  onChange={(e) => {
-                    handleChange(e, t.id);
-                  }}
-                /> */}
                  <Input
                   key={t.id}
                   pattern="^(?!\s*$).+"
@@ -272,9 +242,6 @@ const AddOverlay = (props) => {
                 </option>
               );
             })}
-            {/* <option value="Todo">Todo</option>
-            <option value="Doing">Doing</option>
-            <option value="Done">Done</option> */}
           </select>
         </div>
         <button className="column-btn" >

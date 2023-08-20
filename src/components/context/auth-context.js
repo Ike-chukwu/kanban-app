@@ -77,12 +77,3 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// const authContext = React.createContext({
-//   listOfData: [],
-//   clickedItem: {},
-//   clickHandler: () => {},
-//   dropStatus: "",
-//   light: "",
-// });
-
-// export default AuthContext;

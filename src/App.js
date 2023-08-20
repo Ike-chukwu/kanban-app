@@ -13,7 +13,6 @@ function App() {
   const dataPack = useSelector((state) => state);
 
   const boardData = dataPack.boards;
-  console.log(boardData);
   const [dropStatus, setDropStatus] = useState(false);
 
   const dropDownToggler = () => {

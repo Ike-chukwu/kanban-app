@@ -4,7 +4,7 @@ import suns from "../../assets/icon-light-theme.svg";
 import moons from "../../assets/icon-dark-theme.svg";
 import Board from "../../assets/icon-board.svg";
 import "./DropDownMenu.scss";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import NewBoardOverlay from "../NewBoardOverlay/NewBoardOverlay";
 import { AuthContext } from "../context/auth-context";
 

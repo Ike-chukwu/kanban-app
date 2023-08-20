@@ -33,8 +33,6 @@ const Input = (props) => {
           rows="10"
           focused={focus.toString()}
           onBlur={focusHandler}
-        //   pattern={props.pattern}
-        //   required
           value={props.value}
           onChange={props.onChange}
           type="text"
@@ -50,7 +48,6 @@ const Input = (props) => {
   return (
     <>
       {renderedinput}
-      {/* <p className="error-message">{props.errorMessage}</p> */}
     </>
   );
 };
