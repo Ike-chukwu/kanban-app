@@ -20,7 +20,7 @@
     display: flex;
     gap: 2rem;
     flex-direction: column;
-    max-height: 800px;
+    max-height: 600px;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -83,6 +83,17 @@
 }
 
 // --delete overlay media query---
+@media screen and (orientation: landscape) and (max-width: 1000px) {
+  /* Your styles for screens with a maximum width of 768px in landscape orientation */
+  .d-overlay {
+    .d-cover {
+      height: 250px;
+      width: 300px;
+    }
+  }
+}
+
+
 @media (max-width: 750px) {
   .d-overlay {
     .d-cover {

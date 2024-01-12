@@ -107,7 +107,7 @@ const EditTaskOverlay = (props) => {
 
   //edits and creates task, subtasks, description of the task and also changes the category of subboard the task falls under if the subboard value changes
   const createTask = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const checksCpy = [...details[2].subTasks];
     const checksCpyVal = checksCpy.map(
       (task, index) => (task.checked = props.checkedState[index])

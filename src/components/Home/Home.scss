@@ -48,7 +48,7 @@
   .homeContainer {
     .subtask-overlay {
       .subtask-cover {
-        width: 400px;
+        width: 300px;
       }
     }
 
@@ -58,6 +58,16 @@
 
     .new-vertical-pack {
       min-width: 230px;
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .homeContainer {
+    .subtask-overlay {
+      .subtask-cover {
+        width: 260px;
+      }
     }
   }
 }

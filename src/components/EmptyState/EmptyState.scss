@@ -1,6 +1,6 @@
 .empty {
   background: white;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -23,6 +23,7 @@
     color: white;
     font-weight: 600;
     border-radius: 2rem;
+    font-family: "Open Sans", sans-serif;
 
     &:hover {
       opacity: 0.6;

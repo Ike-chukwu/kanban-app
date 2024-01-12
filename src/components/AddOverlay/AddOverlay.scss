@@ -3,9 +3,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  bottom: 0;
   width: 100vw;
-  height: 100vh;
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -19,7 +18,7 @@
     display: flex;
     gap: 2rem;
     flex-direction: column;
-    max-height: 800px;
+    max-height: 500px;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -46,12 +45,12 @@
     }
 
     // .l-title {
-      input,
-      textarea {
-        width: 100%;
-        padding: 0.5rem;
-        border: 0.1px solid rgba(130, 143, 163, 0.25);
-      }
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 0.1px solid rgba(130, 143, 163, 0.25);
+    }
     // }
 
     .columns-pack {
@@ -89,13 +88,15 @@
 }
 
 // ---darkmode
-.add-overlay{
-  &.dark{
-    .add-cover{
+.add-overlay {
+  &.dark {
+    .add-cover {
       background: #2b2c37;
       color: white;
 
-      input,textarea,select{
+      input,
+      textarea,
+      select {
         background: transparent;
         color: white;
       }
@@ -106,18 +107,44 @@
           color: rgba(99, 95, 199);
         }
       }
-  
+    }
+  }
+}
+
+// media query for add overlay
+@media screen and (orientation: landscape) and (max-width: 1000px) {
+  /* Your styles for screens with a maximum width of 768px in landscape orientation */
+  .add-overlay {
+    .add-cover {
+      height: 300px;
+      width: 300px;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .add-overlay {
+    .add-cover {
+      width: 300px;
+      height: 320px;
+    }
+  }
+}
+
+@media screen and (orientation: landscape) and (min-width: 653px) and (max-width: 653px) {
+  /* Your styles for landscape mode within the specified width range */
+  .add-overlay {
+    .add-cover {
+      height: 200px;
     }
   }
 }
 
 
-// media query for add overlay
-@media (max-width: 750px) {
+@media (max-width: 280px) {
   .add-overlay {
     .add-cover {
-      width: 300px;
-      height: 80%;
+      width: 250px;
     }
   }
 }

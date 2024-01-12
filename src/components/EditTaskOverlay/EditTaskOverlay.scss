@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   width: 100vw;
-  height: 100vh;
+  bottom: 0;
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@
     display: flex;
     gap: 2rem;
     flex-direction: column;
-    max-height: 800px;
+    max-height: 600px;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -118,11 +118,38 @@
 }
 
 // media query for add overlay
+@media screen and (orientation: landscape) and (max-width: 1000px) {
+  /* Your styles for screens with a maximum width of 768px in landscape orientation */
+  .add-overlay {
+    .add-cover {
+      height: 300px;
+      width: 300px;
+    }
+  }
+}
+
 @media (max-width: 750px) {
   .add-overlay {
     .add-cover {
       width: 300px;
-      height: 80%;
+      height: 320px;
+    }
+  }
+}
+
+@media screen and (orientation: landscape) and (min-width: 653px) and (max-width: 653px) {
+  /* Your styles for landscape mode within the specified width range */
+  .add-overlay {
+    .add-cover {
+      height: 200px;
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .add-overlay {
+    .add-cover {
+      width: 250px;
     }
   }
 }
